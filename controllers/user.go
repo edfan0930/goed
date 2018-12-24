@@ -37,3 +37,14 @@ func Get(c echo.Context) error {
 	su := []user{a, b}
 	return c.JSON(http.StatusOK, response{Data: su})
 }
+
+//Login --
+func Login(c echo.Context) error {
+	acc := c.FormValue("acc")
+	pas := c.FormValue("pas")
+	if acc == "" || pas == "" {
+
+		return c.JSON(http.StatusOK, response{Status: status{101, "Not Found"}})
+	}
+	return c.JSON(http.StatusOK, response{Status: status{0, "Success"}})
+}
