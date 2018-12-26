@@ -21,6 +21,10 @@ type (
 		Data   []user `json:"data"`
 		Status status `json:"status"`
 	}
+	login struct {
+		Data   user   `json:"data"`
+		Status status `json:"status"`
+	}
 )
 
 // Create --
@@ -40,11 +44,11 @@ func Get(c echo.Context) error {
 
 //Login --
 func Login(c echo.Context) error {
-	acc := c.FormValue("acc")
-	pas := c.FormValue("pas")
+	acc := c.FormValue("account")
+	pas := c.FormValue("password")
 	if acc == "" || pas == "" {
 
 		return c.JSON(http.StatusOK, response{Status: status{101, "Not Found"}})
 	}
-	return c.JSON(http.StatusOK, response{Status: status{0, "Success"}})
+	return c.JSON(http.StatusOK, login{Data: user{"ed", "e", "male"}, Status: status{0, "Success"}})
 }
