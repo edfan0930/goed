@@ -1,7 +1,6 @@
 package router
 
 import (
-	"Cypress/gameboy/module/errcode"
 	"net/http"
 	"strings"
 
@@ -25,8 +24,7 @@ func Auth(next echo.HandlerFunc) echo.HandlerFunc {
 		//取token 並判斷是否為空
 		token := strings.TrimSpace(c.Request().Header.Get("token"))
 		if len(token) == 0 {
-			output := errcode.CQ9.Output("4")
-			return c.JSON(http.StatusOK, output)
+			return c.JSON(http.StatusOK, "is error")
 		}
 		return next(c)
 	}

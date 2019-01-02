@@ -1,7 +1,6 @@
 package cmd
 
 import (
-	"Cypress/auth/env"
 	"net/http"
 	"time"
 
@@ -13,13 +12,13 @@ import (
 func server() {
 
 	e := echo.New()
-	
+
 	e.Use(middleware.Recover())
 
 	router.Router(e)
 
 	s := &http.Server{
-		Addr:         ":9453" + env.Port,
+		Addr:         "127.0.0.1:9453",
 		ReadTimeout:  60 * time.Second,
 		WriteTimeout: 60 * time.Second,
 	}
