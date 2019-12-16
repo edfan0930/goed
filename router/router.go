@@ -10,9 +10,9 @@ func Router(e *echo.Echo) {
 
 	e.POST("login", controllers.Login)
 
-	u := e.Group("/user", Auth)
+	u := e.Group("/count", Auth)
 
-	u.GET("/:uid", controllers.Get)
+	u.GET("", controllers.Get)
 
 	u.POST("/:uid", controllers.Create)
 

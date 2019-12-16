@@ -11,6 +11,7 @@ const (
 	CollectionUser = "file"
 )
 
+//Field const
 const (
 	FieldID      = "id"
 	FieldName    = "name"

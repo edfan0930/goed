@@ -18,12 +18,21 @@ type (
 		Message string `json:"message"`
 	}
 	response struct {
-		Data   []user `json:"data"`
-		Status status `json:"status"`
+		Data   []count `json:"data"`
+		Status status  `json:"status"`
 	}
 	login struct {
 		Data   user   `json:"data"`
 		Status status `json:"status"`
+	}
+
+	count struct {
+		Name      string `json:"name"`
+		ID        int64  `json:"id"`
+		StartNo   int64  `json:"start_no"`
+		EndNo     int64  `json:"end_no"`
+		Wait      int64  `json:"wait"`
+		CurrentNo int64  `json:"current_no"`
 	}
 )
 
@@ -36,9 +45,9 @@ func Create(c echo.Context) error {
 
 // Get --
 func Get(c echo.Context) error {
-	a := user{"aaaaa", "a", "male"}
-	b := user{"bbbb", "b", "female"}
-	su := []user{a, b}
+	a := count{"aaa", 1, 1, 99, 1, 5}
+	b := count{"bbb", 2, 100, 199, 5, 111}
+	su := []count{a, b}
 	return c.JSON(http.StatusOK, response{Data: su})
 }
 

@@ -1,6 +1,10 @@
 package main
 
-import "github.com/edfan0930/goed/cmd"
+import (
+	"github.com/edfan0930/goed/cmd"
+
+	"github.com/edfan0930/goed/module/file"
+)
 
 type uu struct {
 	Name string
@@ -8,6 +12,10 @@ type uu struct {
 }
 
 func main() {
+	aa := make(chan string)
+	file.ReadFile()
+	<-aa
+	return
 	/* 	u := []uu{uu{"ebabab", "man"}, uu{"ac", "female"}}
 
 	   	f := excel.NewExcel()
