@@ -16,6 +16,7 @@ func Router(e *echo.Echo) {
 
 	u.POST("/:uid", controllers.Create)
 
+	e.POST("/bstring", controllers.Base64String)
 }
 
 //Auth --
